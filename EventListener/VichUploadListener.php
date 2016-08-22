@@ -144,13 +144,16 @@ class VichUploadListener extends Event
 			$format = $response->getFormat();
 
 			// replace extension & update
-			$file_name = $this->replaceExtension($file_name, $format);
-			$file_relative = $this->replaceExtension($file_relative, $format);
+			$updated_file_name = $this->replaceExtension($file_name, $format);
+			$updated_file_relative = $this->replaceExtension($file_relative, $format);
 
-			$this->updateFileName($file_name);
+			$this->updateFileName($updated_file_name);
 
 			// write
-			$filesystem->write($file_relative, $response->getContent(), true);
+			$filesystem->write($updated_file_relative, $response->getContent(), true);
+
+            // delete initial uploaded image
+            $filesystem->delete($file_relative);
 		}
 	}
 
