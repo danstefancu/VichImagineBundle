@@ -14,6 +14,10 @@
         {
             "name": "Dennis Senn",
             "email": "info@interface-f.com"
+        },
+        {
+            "name": "Dan Stefancu",
+            "email": "dan@stefancu.ro"
         }
     ],
     "target-dir": "VichImagineBundle",
