@@ -152,7 +152,7 @@ class VichUploadListener extends Event
 			// write
 			$filesystem->write($updated_file_relative, $response->getContent(), true);
 
-            if( $format !== $image->getFormat() ){
+            if( $format !== $this->getFile()->getFileInfo()->getExtension() ){
 
                 // delete initial uploaded image
                 $filesystem->delete($file_relative);
